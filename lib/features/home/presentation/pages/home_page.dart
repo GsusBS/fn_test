@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fn_test/features/products/presentation/product_list/widgets/product_list.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
