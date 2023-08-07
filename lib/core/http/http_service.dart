@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:fn_test/core/http/endpoints.dart';
 
 class HttpService {
   final Dio _client = Dio();
@@ -11,7 +12,7 @@ class HttpService {
     try {
       String uri = endpoint;
       return await _client.get(
-        uri,
+        Endpoints.baseUrl + uri,
         queryParameters: arguments,
         options: Options(
           responseType: ResponseType.plain,
