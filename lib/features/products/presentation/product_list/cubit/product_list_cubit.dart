@@ -11,17 +11,21 @@ class ProductListCubit extends Cubit<ProductListState> {
 
   final ProductsRepository _productsRepository;
 
-  Future<void> init(
-    String idGroup,
-  ) async {
+  Future<void> init({
+    String? page,
+    String? size,
+  }) async {
     emit(
       state.copyWith(
         status: false,
       ),
     );
+    GetProductsRequestDTO productsRequest = GetProductsRequestDTO(
+      page: page ?? '1',
+      size: size ?? '10',
+    );
 
-    final either = await _productsRepository
-        .getProducts(GetProductsRequestDTO(page: '10', size: '10'));
+    final either = await _productsRepository.getProducts(productsRequest);
 
     either.fold(
       (failure) {

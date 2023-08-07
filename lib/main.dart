@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fn_test/core/di/service_locator.dart';
 import 'package:fn_test/core/routing/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  serviceLocatorSetUp();
   runApp(const MyApp());
 }
 

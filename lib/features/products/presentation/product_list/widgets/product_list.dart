@@ -27,6 +27,7 @@ class ProductListContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<ProductListCubit>().init();
     return BlocBuilder<ProductListCubit, ProductListState>(
       builder: (context, state) {
         return ListView.builder(
