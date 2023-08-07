@@ -17,7 +17,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       description: json['description'] as String?,
       name: json['name'] as String?,
       displayName: json['displayName'] as String?,
-      type: json['type'] as String?,
+      type: $enumDecodeNullable(_$ProductTypeEnumMap, json['type']),
       vodafoneBaseProductId: json['vodafoneBaseProductId'] as int?,
       vodafoneProductId: json['vodafoneProductId'] as int?,
       fiberUploadMegas: json['fiberUploadMegas'] as int?,
@@ -48,7 +48,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'description': instance.description,
       'name': instance.name,
       'displayName': instance.displayName,
-      'type': instance.type,
+      'type': _$ProductTypeEnumMap[instance.type],
       'vodafoneBaseProductId': instance.vodafoneBaseProductId,
       'vodafoneProductId': instance.vodafoneProductId,
       'fiberUploadMegas': instance.fiberUploadMegas,
@@ -62,3 +62,9 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'prices': instance.prices,
       'lLinks': instance.lLinks,
     };
+
+const _$ProductTypeEnumMap = {
+  ProductType.FIBERVODAFONE: 'FIBERVODAFONE',
+  ProductType.PHONELINE: 'PHONELINE',
+  ProductType.SWITCHBOARD: 'SWITCHBOARD',
+};

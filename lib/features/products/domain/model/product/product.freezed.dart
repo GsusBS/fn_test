@@ -30,7 +30,7 @@ mixin _$Product {
   String? get description => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  ProductType? get type => throw _privateConstructorUsedError;
   int? get vodafoneBaseProductId => throw _privateConstructorUsedError;
   int? get vodafoneProductId => throw _privateConstructorUsedError;
   int? get fiberUploadMegas => throw _privateConstructorUsedError;
@@ -65,7 +65,7 @@ abstract class $ProductCopyWith<$Res> {
       String? description,
       String? name,
       String? displayName,
-      String? type,
+      ProductType? type,
       int? vodafoneBaseProductId,
       int? vodafoneProductId,
       int? fiberUploadMegas,
@@ -163,7 +163,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ProductType?,
       vodafoneBaseProductId: freezed == vodafoneBaseProductId
           ? _value.vodafoneBaseProductId
           : vodafoneBaseProductId // ignore: cast_nullable_to_non_nullable
@@ -246,7 +246,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? description,
       String? name,
       String? displayName,
-      String? type,
+      ProductType? type,
       int? vodafoneBaseProductId,
       int? vodafoneProductId,
       int? fiberUploadMegas,
@@ -342,7 +342,7 @@ class __$$_ProductCopyWithImpl<$Res>
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ProductType?,
       vodafoneBaseProductId: freezed == vodafoneBaseProductId
           ? _value.vodafoneBaseProductId
           : vodafoneBaseProductId // ignore: cast_nullable_to_non_nullable
@@ -448,7 +448,7 @@ class _$_Product implements _Product {
   @override
   final String? displayName;
   @override
-  final String? type;
+  final ProductType? type;
   @override
   final int? vodafoneBaseProductId;
   @override
@@ -589,7 +589,7 @@ abstract class _Product implements Product {
       final String? description,
       final String? name,
       final String? displayName,
-      final String? type,
+      final ProductType? type,
       final int? vodafoneBaseProductId,
       final int? vodafoneProductId,
       final int? fiberUploadMegas,
@@ -626,7 +626,7 @@ abstract class _Product implements Product {
   @override
   String? get displayName;
   @override
-  String? get type;
+  ProductType? get type;
   @override
   int? get vodafoneBaseProductId;
   @override

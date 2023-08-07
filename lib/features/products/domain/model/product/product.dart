@@ -4,6 +4,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'product.freezed.dart';
 part 'product.g.dart';
 
+enum ProductType {
+  FIBERVODAFONE,
+  PHONELINE,
+  SWITCHBOARD,
+}
+
 @freezed
 class Product with _$Product {
   const factory Product({
@@ -17,7 +23,7 @@ class Product with _$Product {
     String? description,
     String? name,
     String? displayName,
-    String? type,
+    ProductType? type,
     int? vodafoneBaseProductId,
     int? vodafoneProductId,
     int? fiberUploadMegas,

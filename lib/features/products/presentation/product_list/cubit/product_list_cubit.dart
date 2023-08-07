@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fn_test/core/constants/app_contants.dart';
 import 'package:fn_test/features/products/data/dto/get_products.dart';
 import 'package:fn_test/features/products/domain/repository/products_repository.dart';
 import 'package:fn_test/features/products/presentation/product_list/cubit/product_list_state.dart';
@@ -21,8 +22,8 @@ class ProductListCubit extends Cubit<ProductListState> {
       ),
     );
     GetProductsRequestDTO productsRequest = GetProductsRequestDTO(
-      page: page ?? '1',
-      size: size ?? '10',
+      page: page ?? AppConstants.defaultPage,
+      size: size ?? AppConstants.defaultSize,
     );
 
     final either = await _productsRepository.getProducts(productsRequest);
