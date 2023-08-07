@@ -1,5 +1,8 @@
 # fn_test
 
+https://github.com/GsusBS/fn_test/assets/15215998/a02df2ff-de19-48c9-973a-e176274b71e4
+
+
 - La arquitectura de la app propuesta ha sido la que estoy acostumbrado a trabajar con ella, la idea es tener separadas las features en 3 capas, siendo:
 
     la capa de datos como puede ser la implementación de la api de la funcionalidad y los dtos que se encargan de transmitir la información con el repositorio.
