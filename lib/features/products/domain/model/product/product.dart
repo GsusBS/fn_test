@@ -1,14 +1,9 @@
+import 'package:fn_test/core/utils/enums/product_type.dart';
 import 'package:fn_test/features/products/domain/model/links/links.dart';
 import 'package:fn_test/features/products/domain/model/prices/prices.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'product.freezed.dart';
 part 'product.g.dart';
-
-enum ProductType {
-  FIBERVODAFONE,
-  PHONELINE,
-  SWITCHBOARD,
-}
 
 @freezed
 class Product with _$Product {
