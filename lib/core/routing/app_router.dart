@@ -10,8 +10,7 @@ final GoRouter goRouter = GoRouter(
     GoRoute(
       path: '/',
       name: AppRoute.home.name,
-      builder: (context, state) =>
-          const MyHomePage(title: 'Flutter Demo Home Page'),
+      builder: (context, state) => const HomePage(),
     ),
   ],
 );
