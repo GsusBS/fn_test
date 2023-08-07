@@ -20,9 +20,9 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Product {
-  String? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   int? get createdById => throw _privateConstructorUsedError;
-  String? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   int? get updatedById => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   int? get oldId => throw _privateConstructorUsedError;
@@ -42,7 +42,8 @@ mixin _$Product {
   String? get provider => throw _privateConstructorUsedError;
   String? get bundleName => throw _privateConstructorUsedError;
   List<Prices>? get prices => throw _privateConstructorUsedError;
-  Links? get lLinks => throw _privateConstructorUsedError;
+  @JsonKey(name: '_links')
+  Links? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,9 +56,9 @@ abstract class $ProductCopyWith<$Res> {
       _$ProductCopyWithImpl<$Res, Product>;
   @useResult
   $Res call(
-      {String? createdAt,
+      {DateTime? createdAt,
       int? createdById,
-      String? updatedAt,
+      DateTime? updatedAt,
       int? updatedById,
       int? id,
       int? oldId,
@@ -77,9 +78,9 @@ abstract class $ProductCopyWith<$Res> {
       String? provider,
       String? bundleName,
       List<Prices>? prices,
-      Links? lLinks});
+      @JsonKey(name: '_links') Links? links});
 
-  $LinksCopyWith<$Res>? get lLinks;
+  $LinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -117,13 +118,13 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? provider = freezed,
     Object? bundleName = freezed,
     Object? prices = freezed,
-    Object? lLinks = freezed,
+    Object? links = freezed,
   }) {
     return _then(_value.copyWith(
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       createdById: freezed == createdById
           ? _value.createdById
           : createdById // ignore: cast_nullable_to_non_nullable
@@ -131,7 +132,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       updatedById: freezed == updatedById
           ? _value.updatedById
           : updatedById // ignore: cast_nullable_to_non_nullable
@@ -208,22 +209,22 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.prices
           : prices // ignore: cast_nullable_to_non_nullable
               as List<Prices>?,
-      lLinks: freezed == lLinks
-          ? _value.lLinks
-          : lLinks // ignore: cast_nullable_to_non_nullable
+      links: freezed == links
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
               as Links?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res>? get lLinks {
-    if (_value.lLinks == null) {
+  $LinksCopyWith<$Res>? get links {
+    if (_value.links == null) {
       return null;
     }
 
-    return $LinksCopyWith<$Res>(_value.lLinks!, (value) {
-      return _then(_value.copyWith(lLinks: value) as $Val);
+    return $LinksCopyWith<$Res>(_value.links!, (value) {
+      return _then(_value.copyWith(links: value) as $Val);
     });
   }
 }
@@ -236,9 +237,9 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? createdAt,
+      {DateTime? createdAt,
       int? createdById,
-      String? updatedAt,
+      DateTime? updatedAt,
       int? updatedById,
       int? id,
       int? oldId,
@@ -258,10 +259,10 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? provider,
       String? bundleName,
       List<Prices>? prices,
-      Links? lLinks});
+      @JsonKey(name: '_links') Links? links});
 
   @override
-  $LinksCopyWith<$Res>? get lLinks;
+  $LinksCopyWith<$Res>? get links;
 }
 
 /// @nodoc
@@ -296,13 +297,13 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? provider = freezed,
     Object? bundleName = freezed,
     Object? prices = freezed,
-    Object? lLinks = freezed,
+    Object? links = freezed,
   }) {
     return _then(_$_Product(
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       createdById: freezed == createdById
           ? _value.createdById
           : createdById // ignore: cast_nullable_to_non_nullable
@@ -310,7 +311,7 @@ class __$$_ProductCopyWithImpl<$Res>
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as DateTime?,
       updatedById: freezed == updatedById
           ? _value.updatedById
           : updatedById // ignore: cast_nullable_to_non_nullable
@@ -387,9 +388,9 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value._prices
           : prices // ignore: cast_nullable_to_non_nullable
               as List<Prices>?,
-      lLinks: freezed == lLinks
-          ? _value.lLinks
-          : lLinks // ignore: cast_nullable_to_non_nullable
+      links: freezed == links
+          ? _value.links
+          : links // ignore: cast_nullable_to_non_nullable
               as Links?,
     ));
   }
@@ -421,18 +422,18 @@ class _$_Product implements _Product {
       this.provider,
       this.bundleName,
       final List<Prices>? prices,
-      this.lLinks})
+      @JsonKey(name: '_links') this.links})
       : _prices = prices;
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
 
   @override
-  final String? createdAt;
+  final DateTime? createdAt;
   @override
   final int? createdById;
   @override
-  final String? updatedAt;
+  final DateTime? updatedAt;
   @override
   final int? updatedById;
   @override
@@ -480,11 +481,12 @@ class _$_Product implements _Product {
   }
 
   @override
-  final Links? lLinks;
+  @JsonKey(name: '_links')
+  final Links? links;
 
   @override
   String toString() {
-    return 'Product(createdAt: $createdAt, createdById: $createdById, updatedAt: $updatedAt, updatedById: $updatedById, id: $id, oldId: $oldId, standaloneAllowed: $standaloneAllowed, description: $description, name: $name, displayName: $displayName, type: $type, vodafoneBaseProductId: $vodafoneBaseProductId, vodafoneProductId: $vodafoneProductId, fiberUploadMegas: $fiberUploadMegas, fiberDownloadMegas: $fiberDownloadMegas, fiberTecnology: $fiberTecnology, phonelineMegas: $phonelineMegas, phonelineMinutes: $phonelineMinutes, phonelineSms: $phonelineSms, provider: $provider, bundleName: $bundleName, prices: $prices, lLinks: $lLinks)';
+    return 'Product(createdAt: $createdAt, createdById: $createdById, updatedAt: $updatedAt, updatedById: $updatedById, id: $id, oldId: $oldId, standaloneAllowed: $standaloneAllowed, description: $description, name: $name, displayName: $displayName, type: $type, vodafoneBaseProductId: $vodafoneBaseProductId, vodafoneProductId: $vodafoneProductId, fiberUploadMegas: $fiberUploadMegas, fiberDownloadMegas: $fiberDownloadMegas, fiberTecnology: $fiberTecnology, phonelineMegas: $phonelineMegas, phonelineMinutes: $phonelineMinutes, phonelineSms: $phonelineSms, provider: $provider, bundleName: $bundleName, prices: $prices, links: $links)';
   }
 
   @override
@@ -531,7 +533,7 @@ class _$_Product implements _Product {
             (identical(other.bundleName, bundleName) ||
                 other.bundleName == bundleName) &&
             const DeepCollectionEquality().equals(other._prices, _prices) &&
-            (identical(other.lLinks, lLinks) || other.lLinks == lLinks));
+            (identical(other.links, links) || other.links == links));
   }
 
   @JsonKey(ignore: true)
@@ -560,7 +562,7 @@ class _$_Product implements _Product {
         provider,
         bundleName,
         const DeepCollectionEquality().hash(_prices),
-        lLinks
+        links
       ]);
 
   @JsonKey(ignore: true)
@@ -579,9 +581,9 @@ class _$_Product implements _Product {
 
 abstract class _Product implements Product {
   const factory _Product(
-      {final String? createdAt,
+      {final DateTime? createdAt,
       final int? createdById,
-      final String? updatedAt,
+      final DateTime? updatedAt,
       final int? updatedById,
       final int? id,
       final int? oldId,
@@ -601,16 +603,16 @@ abstract class _Product implements Product {
       final String? provider,
       final String? bundleName,
       final List<Prices>? prices,
-      final Links? lLinks}) = _$_Product;
+      @JsonKey(name: '_links') final Links? links}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
   @override
-  String? get createdAt;
+  DateTime? get createdAt;
   @override
   int? get createdById;
   @override
-  String? get updatedAt;
+  DateTime? get updatedAt;
   @override
   int? get updatedById;
   @override
@@ -650,7 +652,8 @@ abstract class _Product implements Product {
   @override
   List<Prices>? get prices;
   @override
-  Links? get lLinks;
+  @JsonKey(name: '_links')
+  Links? get links;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

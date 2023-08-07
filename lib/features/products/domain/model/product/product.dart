@@ -8,9 +8,9 @@ part 'product.g.dart';
 @freezed
 class Product with _$Product {
   const factory Product({
-    String? createdAt,
+    DateTime? createdAt,
     int? createdById,
-    String? updatedAt,
+    DateTime? updatedAt,
     int? updatedById,
     int? id,
     int? oldId,
@@ -30,7 +30,7 @@ class Product with _$Product {
     String? provider,
     String? bundleName,
     List<Prices>? prices,
-    Links? lLinks,
+    @JsonKey(name: '_links') Links? links,
   }) = _Product;
 
   factory Product.fromJson(Map<String, dynamic> json) =>

@@ -7,9 +7,13 @@ part of 'product.dart';
 // **************************************************************************
 
 _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
-      createdAt: json['createdAt'] as String?,
+      createdAt: json['createdAt'] == null
+          ? null
+          : DateTime.parse(json['createdAt'] as String),
       createdById: json['createdById'] as int?,
-      updatedAt: json['updatedAt'] as String?,
+      updatedAt: json['updatedAt'] == null
+          ? null
+          : DateTime.parse(json['updatedAt'] as String),
       updatedById: json['updatedById'] as int?,
       id: json['id'] as int?,
       oldId: json['oldId'] as int?,
@@ -31,16 +35,16 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       prices: (json['prices'] as List<dynamic>?)
           ?.map((e) => Prices.fromJson(e as Map<String, dynamic>))
           .toList(),
-      lLinks: json['lLinks'] == null
+      links: json['_links'] == null
           ? null
-          : Links.fromJson(json['lLinks'] as Map<String, dynamic>),
+          : Links.fromJson(json['_links'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
     <String, dynamic>{
-      'createdAt': instance.createdAt,
+      'createdAt': instance.createdAt?.toIso8601String(),
       'createdById': instance.createdById,
-      'updatedAt': instance.updatedAt,
+      'updatedAt': instance.updatedAt?.toIso8601String(),
       'updatedById': instance.updatedById,
       'id': instance.id,
       'oldId': instance.oldId,
@@ -60,7 +64,7 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'provider': instance.provider,
       'bundleName': instance.bundleName,
       'prices': instance.prices,
-      'lLinks': instance.lLinks,
+      '_links': instance.links,
     };
 
 const _$ProductTypeEnumMap = {

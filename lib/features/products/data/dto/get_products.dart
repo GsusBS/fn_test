@@ -1,7 +1,6 @@
 import 'package:fn_test/features/products/domain/model/embedded/embedded.dart';
 import 'package:fn_test/features/products/domain/model/links/links.dart';
 import 'package:fn_test/features/products/domain/model/page/page.dart';
-import 'package:fn_test/features/products/domain/model/product/product.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'get_products.freezed.dart';
