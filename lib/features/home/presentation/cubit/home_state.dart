@@ -1,5 +1,4 @@
 import 'package:fn_test/core/utils/enums/status.dart';
-import 'package:fn_test/features/products/domain/model/product/product.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_state.freezed.dart';

@@ -36,8 +36,10 @@ class ProductDetailsContent extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       children: [
-        Text('Nombre: ${product?.name ?? "N/A"}',
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Text(
+          'Nombre: ${product?.name ?? "N/A"}',
+          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
         Text('Descripción: ${product?.description ?? "N/A"}'),
         Text('Tipo de producto: ${product?.type.toString().split('.').last}'),
         Text('ID: ${product?.id ?? "N/A"}'),
