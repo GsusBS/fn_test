@@ -17,7 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductListState {
   List<Product> get productList => throw _privateConstructorUsedError;
-  bool get status => throw _privateConstructorUsedError;
+  bool get hasReachedMax => throw _privateConstructorUsedError;
+  Status get status => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductListStateCopyWith<ProductListState> get copyWith =>
@@ -30,7 +32,8 @@ abstract class $ProductListStateCopyWith<$Res> {
           ProductListState value, $Res Function(ProductListState) then) =
       _$ProductListStateCopyWithImpl<$Res, ProductListState>;
   @useResult
-  $Res call({List<Product> productList, bool status});
+  $Res call(
+      {List<Product> productList, bool hasReachedMax, Status status, int page});
 }
 
 /// @nodoc
@@ -47,17 +50,27 @@ class _$ProductListStateCopyWithImpl<$Res, $Val extends ProductListState>
   @override
   $Res call({
     Object? productList = null,
+    Object? hasReachedMax = null,
     Object? status = null,
+    Object? page = null,
   }) {
     return _then(_value.copyWith(
       productList: null == productList
           ? _value.productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      hasReachedMax: null == hasReachedMax
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as Status,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -70,7 +83,8 @@ abstract class _$$_ProductListStateCopyWith<$Res>
       __$$_ProductListStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Product> productList, bool status});
+  $Res call(
+      {List<Product> productList, bool hasReachedMax, Status status, int page});
 }
 
 /// @nodoc
@@ -85,17 +99,27 @@ class __$$_ProductListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productList = null,
+    Object? hasReachedMax = null,
     Object? status = null,
+    Object? page = null,
   }) {
     return _then(_$_ProductListState(
       productList: null == productList
           ? _value._productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
+      hasReachedMax: null == hasReachedMax
+          ? _value.hasReachedMax
+          : hasReachedMax // ignore: cast_nullable_to_non_nullable
+              as bool,
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as Status,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -104,7 +128,10 @@ class __$$_ProductListStateCopyWithImpl<$Res>
 
 class _$_ProductListState implements _ProductListState {
   const _$_ProductListState(
-      {final List<Product> productList = const [], this.status = false})
+      {final List<Product> productList = const [],
+      this.hasReachedMax = false,
+      this.status = Status.initial,
+      this.page = 0})
       : _productList = productList;
 
   final List<Product> _productList;
@@ -118,11 +145,17 @@ class _$_ProductListState implements _ProductListState {
 
   @override
   @JsonKey()
-  final bool status;
+  final bool hasReachedMax;
+  @override
+  @JsonKey()
+  final Status status;
+  @override
+  @JsonKey()
+  final int page;
 
   @override
   String toString() {
-    return 'ProductListState(productList: $productList, status: $status)';
+    return 'ProductListState(productList: $productList, hasReachedMax: $hasReachedMax, status: $status, page: $page)';
   }
 
   @override
@@ -132,12 +165,19 @@ class _$_ProductListState implements _ProductListState {
             other is _$_ProductListState &&
             const DeepCollectionEquality()
                 .equals(other._productList, _productList) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.hasReachedMax, hasReachedMax) ||
+                other.hasReachedMax == hasReachedMax) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_productList), status);
+      runtimeType,
+      const DeepCollectionEquality().hash(_productList),
+      hasReachedMax,
+      status,
+      page);
 
   @JsonKey(ignore: true)
   @override
@@ -149,12 +189,18 @@ class _$_ProductListState implements _ProductListState {
 abstract class _ProductListState implements ProductListState {
   const factory _ProductListState(
       {final List<Product> productList,
-      final bool status}) = _$_ProductListState;
+      final bool hasReachedMax,
+      final Status status,
+      final int page}) = _$_ProductListState;
 
   @override
   List<Product> get productList;
   @override
-  bool get status;
+  bool get hasReachedMax;
+  @override
+  Status get status;
+  @override
+  int get page;
   @override
   @JsonKey(ignore: true)
   _$$_ProductListStateCopyWith<_$_ProductListState> get copyWith =>

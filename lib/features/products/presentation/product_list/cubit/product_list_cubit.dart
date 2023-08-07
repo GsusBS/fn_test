@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fn_test/core/utils/constants/app_contants.dart';
+import 'package:fn_test/core/utils/enums/status.dart';
 import 'package:fn_test/features/products/data/dto/get_products.dart';
 import 'package:fn_test/features/products/domain/repository/products_repository.dart';
 import 'package:fn_test/features/products/presentation/product_list/cubit/product_list_state.dart';
@@ -12,37 +13,58 @@ class ProductListCubit extends Cubit<ProductListState> {
 
   final ProductsRepository _productsRepository;
 
-  Future<void> init({
-    String? page,
-    String? size,
-  }) async {
-    emit(
-      state.copyWith(
-        status: false,
-      ),
-    );
+  Future<void> fetchProducts() async {
+    if (state.hasReachedMax) return;
+
+    if (state.status.isInitial) {
+      GetProductsRequestDTO productsRequest = GetProductsRequestDTO(
+        page: AppConstants.defaultPage,
+        size: AppConstants.defaultSize,
+      );
+      final either = await _productsRepository.getProducts(productsRequest);
+      return either.fold(
+        (failure) {
+          emit(
+            state.copyWith(
+              status: Status.error,
+            ),
+          );
+        },
+        (response) {
+          emit(
+            state.copyWith(
+              status: Status.success,
+              productList: response,
+              hasReachedMax: false,
+            ),
+          );
+        },
+      );
+    }
     GetProductsRequestDTO productsRequest = GetProductsRequestDTO(
-      page: page ?? AppConstants.defaultPage,
-      size: size ?? AppConstants.defaultSize,
+      page: state.page + 1,
+      size: AppConstants.defaultSize,
     );
-
     final either = await _productsRepository.getProducts(productsRequest);
-
-    either.fold(
+    return either.fold(
       (failure) {
         emit(
           state.copyWith(
-            status: false,
+            status: Status.error,
           ),
         );
       },
-      (success) {
-        emit(
-          state.copyWith(
-            status: true,
-            productList: success,
-          ),
-        );
+      (response) {
+        response.isEmpty
+            ? emit(state.copyWith(hasReachedMax: true))
+            : emit(
+                state.copyWith(
+                  status: Status.success,
+                  page: state.page + 1,
+                  productList: List.of(state.productList)..addAll(response),
+                  hasReachedMax: false,
+                ),
+              );
       },
     );
   }

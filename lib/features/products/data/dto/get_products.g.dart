@@ -9,8 +9,8 @@ part of 'get_products.dart';
 _$_GetProductsRequestDTO _$$_GetProductsRequestDTOFromJson(
         Map<String, dynamic> json) =>
     _$_GetProductsRequestDTO(
-      page: json['page'] as String,
-      size: json['size'] as String,
+      page: json['page'] as int,
+      size: json['size'] as int,
     );
 
 Map<String, dynamic> _$$_GetProductsRequestDTOToJson(

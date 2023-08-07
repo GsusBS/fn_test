@@ -1,4 +1,4 @@
 class AppConstants {
-  static String defaultPage = '1';
-  static String defaultSize = '20';
+  static int defaultPage = 1;
+  static int defaultSize = 20;
 }

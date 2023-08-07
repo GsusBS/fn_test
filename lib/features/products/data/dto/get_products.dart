@@ -9,8 +9,8 @@ part 'get_products.g.dart';
 @freezed
 class GetProductsRequestDTO with _$GetProductsRequestDTO {
   const factory GetProductsRequestDTO({
-    required String page,
-    required String size,
+    required int page,
+    required int size,
   }) = _GetProductsRequestDTO;
 
   factory GetProductsRequestDTO.fromJson(Map<String, dynamic> json) =>

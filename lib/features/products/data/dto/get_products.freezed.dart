@@ -21,8 +21,8 @@ GetProductsRequestDTO _$GetProductsRequestDTOFromJson(
 
 /// @nodoc
 mixin _$GetProductsRequestDTO {
-  String get page => throw _privateConstructorUsedError;
-  String get size => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  int get size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +36,7 @@ abstract class $GetProductsRequestDTOCopyWith<$Res> {
           $Res Function(GetProductsRequestDTO) then) =
       _$GetProductsRequestDTOCopyWithImpl<$Res, GetProductsRequestDTO>;
   @useResult
-  $Res call({String page, String size});
+  $Res call({int page, int size});
 }
 
 /// @nodoc
@@ -60,11 +60,11 @@ class _$GetProductsRequestDTOCopyWithImpl<$Res,
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -77,7 +77,7 @@ abstract class _$$_GetProductsRequestDTOCopyWith<$Res>
       __$$_GetProductsRequestDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String page, String size});
+  $Res call({int page, int size});
 }
 
 /// @nodoc
@@ -98,11 +98,11 @@ class __$$_GetProductsRequestDTOCopyWithImpl<$Res>
       page: null == page
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -116,9 +116,9 @@ class _$_GetProductsRequestDTO implements _GetProductsRequestDTO {
       _$$_GetProductsRequestDTOFromJson(json);
 
   @override
-  final String page;
+  final int page;
   @override
-  final String size;
+  final int size;
 
   @override
   String toString() {
@@ -155,16 +155,16 @@ class _$_GetProductsRequestDTO implements _GetProductsRequestDTO {
 
 abstract class _GetProductsRequestDTO implements GetProductsRequestDTO {
   const factory _GetProductsRequestDTO(
-      {required final String page,
-      required final String size}) = _$_GetProductsRequestDTO;
+      {required final int page,
+      required final int size}) = _$_GetProductsRequestDTO;
 
   factory _GetProductsRequestDTO.fromJson(Map<String, dynamic> json) =
       _$_GetProductsRequestDTO.fromJson;
 
   @override
-  String get page;
+  int get page;
   @override
-  String get size;
+  int get size;
   @override
   @JsonKey(ignore: true)
   _$$_GetProductsRequestDTOCopyWith<_$_GetProductsRequestDTO> get copyWith =>
