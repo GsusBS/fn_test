@@ -10,15 +10,26 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<HomeCubit>(
       create: (context) => HomeCubit()..init(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(context.watch<HomeCubit>().state.appName),
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        ),
-        body: const ProductList(),
+      child: HomeContent(),
+    );
+  }
+}
+
+class HomeContent extends StatelessWidget {
+  const HomeContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(context.watch<HomeCubit>().state.appName),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
+      body: const ProductList(),
     );
   }
 }
