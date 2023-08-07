@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fn_test/core/di/service_locator.dart';
+import 'package:fn_test/core/routing/app_router.dart';
 import 'package:fn_test/core/utils/enums/product_type.dart';
 import 'package:fn_test/features/products/domain/model/product/product.dart';
 import 'package:fn_test/features/products/domain/repository/products_repository.dart';
 import 'package:fn_test/features/products/presentation/product_list/cubit/product_list_cubit.dart';
 import 'package:fn_test/features/products/presentation/product_list/cubit/product_list_state.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({
@@ -53,18 +55,22 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: _getBackgroundColor(),
-      elevation: 4,
-      margin: const EdgeInsets.all(16),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Nombre: ${product?.displayName ?? "N/A"}'),
-            Text('Descripción: ${product?.description ?? "N/A"}'),
-          ],
+    return GestureDetector(
+      onTap: () =>
+          context.pushNamed(AppRoute.productDetails.name, extra: product),
+      child: Card(
+        color: _getBackgroundColor(),
+        elevation: 4,
+        margin: const EdgeInsets.all(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Nombre: ${product?.displayName ?? "N/A"}'),
+              Text('Descripción: ${product?.description ?? "N/A"}'),
+            ],
+          ),
         ),
       ),
     );
