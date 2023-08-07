@@ -21,10 +21,11 @@ class ApiProductsRepository extends ProductsRepository {
         arguments: request.toJson(),
       );
 
-      final jsonResponse = jsonDecode(resp.data);
+      GetProductsResponseDTO response =
+          GetProductsResponseDTO.fromJson(resp.data);
 
-      return Right(jsonResponse);
-    } catch (e) {
+      return Right(response.embedded?.products ?? []);
+    } catch (_) {
       return const Left(null);
     }
   }

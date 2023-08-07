@@ -10,13 +10,9 @@ class HttpService {
     Map<String, dynamic>? arguments,
   }) async {
     try {
-      String uri = endpoint;
       return await _client.get(
-        Endpoints.baseUrl + uri,
+        Endpoints.baseUrl + endpoint,
         queryParameters: arguments,
-        options: Options(
-          responseType: ResponseType.plain,
-        ),
       );
     } catch (error) {
       rethrow;
