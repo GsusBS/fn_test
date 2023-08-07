@@ -53,10 +53,11 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        child: Column(
-      children: [
-        Text(product?.displayName ?? ''),
-      ],
-    ));
+      child: Column(
+        children: [
+          Text(product?.displayName ?? ''),
+        ],
+      ),
+    );
   }
 }

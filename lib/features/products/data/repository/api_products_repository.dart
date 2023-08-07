@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:fn_test/core/http/endpoints.dart';
 import 'package:fn_test/core/http/http_service.dart';
@@ -14,7 +13,8 @@ class ApiProductsRepository extends ProductsRepository {
 
   @override
   Future<Either<void, List<Product>>> getProducts(
-      GetProductsRequestDTO request) async {
+    GetProductsRequestDTO request,
+  ) async {
     try {
       final resp = await _httpServer.get(
         endpoint: Endpoints.products,
